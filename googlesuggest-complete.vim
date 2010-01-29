@@ -2,7 +2,7 @@
 " File: googlesuggest-complete.vim
 " Author: Yasuhiro Matsumoto <mattn.jp@gmail.com>
 " Last Change: 29-Jan-2010.
-" Version: 0.1
+" Version: 0.2
 " WebPage: http://github.com/mattn/googlesuggest-complete-vim
 " Usage:
 "
