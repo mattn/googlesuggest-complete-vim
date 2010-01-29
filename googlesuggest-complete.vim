@@ -1,7 +1,7 @@
 "=============================================================================
 " File: googlesuggest-complete.vim
 " Author: Yasuhiro Matsumoto <mattn.jp@gmail.com>
-" Last Change: 28-Jan-2010.
+" Last Change: 29-Jan-2010.
 " Version: 0.1
 " WebPage: http://github.com/mattn/googlesuggest-complete-vim
 " Usage:
@@ -163,7 +163,7 @@ function! GoogleSuggest(findstart, base)
     " find months matching with "a:base"
     let res = []
     let g:hoge =  a:base
-    let str = s:do_http('http://google.com/complete/search', {"output" : "json", "q" : a:base, "hl" : g:googlesuggest_language}, {}, {}, 0)
+    let str = s:do_http('http://google.com/complete/search', {"output" : "json", "q" : a:base, "hl" : g:googlesuggest_language, "ie" : "UTF8", "oe" : "UTF8" }, {}, {}, 0)
     let str = iconv(str, "utf-8", &encoding)
     let str = substitute(str, '\\u\(\x\x\x\x\)', '\=s:nr2enc_char("0x".submatch(1))', 'g')
     let str = substitute(str, '^window\.google\.ac\.h', '', '')
