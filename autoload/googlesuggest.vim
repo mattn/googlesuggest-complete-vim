@@ -1,10 +1,14 @@
 "=============================================================================
 " File: googlesuggest-complete.vim
 " Author: Yasuhiro Matsumoto <mattn.jp@gmail.com>
-" Last Change: 29-Jan-2010.
+" Last Change: 11-Jan-2011.
 " Version: 0.2
 " WebPage: http://github.com/mattn/googlesuggest-complete-vim
 " Usage:
+"
+"   Require:
+"
+"     set completefunc=googlesuggest#Complete
 "
 "   Lesson1:
 "
@@ -150,7 +154,7 @@ function! s:do_http(url, getdata, postdata, cookie, returnheader)
   return res
 endfunction
 
-function! GoogleSuggest(findstart, base)
+function! googlesuggest#Complete(findstart, base)
   if a:findstart
     " locate the start of the word
     let line = getline('.')
@@ -177,4 +181,3 @@ function! GoogleSuggest(findstart, base)
   endif
 endfunction
 
-set completefunc=GoogleSuggest
