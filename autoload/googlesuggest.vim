@@ -166,11 +166,7 @@ function! googlesuggest#Complete(findstart, base)
   else
     " find months matching with "a:base"
     let res = []
-    let g:hoge =  a:base
-    let str = s:do_http('http://google.com/complete/search', {"output" : "json", "q" : a:base, "hl" : g:googlesuggest_language, "ie" : "UTF8", "oe" : "UTF8" }, {}, {}, 0)
-    let str = iconv(str, "utf-8", &encoding)
-    let str = substitute(str, '\\u\(\x\x\x\x\)', '\=s:nr2enc_char("0x".submatch(1))', 'g')
-    let str = substitute(str, '^window\.google\.ac\.h', '', '')
+    let str = s:do_http('http://suggestqueries.google.com/complete/search', {"client" : "youtube", "q" : a:base, "hjson" : "t", "hl" : g:googlesuggest_language, "ie" : "UTF8", "oe" : "UTF8" }, {}, {}, 0)
     let l:true = 1
     let l:false = 0
     let lst = eval(str)
