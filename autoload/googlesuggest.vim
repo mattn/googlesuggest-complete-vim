@@ -1,7 +1,7 @@
 "=============================================================================
 " File: googlesuggest-complete.vim
 " Author: Yasuhiro Matsumoto <mattn.jp@gmail.com>
-" Last Change: 30-Nov-2011.
+" Last Change: 03-Apr-2012.
 " Version: 0.2
 " WebPage: http://github.com/mattn/googlesuggest-complete-vim
 " Usage:
@@ -68,8 +68,8 @@ function! googlesuggest#Complete(findstart, base)
   else
     " find months matching with "a:base"
     let ret = []
-    let res = http#get('http://suggestqueries.google.com/complete/search', {"client" : "youtube", "q" : a:base, "hjson" : "t", "hl" : g:googlesuggest_language, "ie" : "UTF8", "oe" : "UTF8" })
-	let arr = json#decode(res.content)
+    let res = webapi#http#get('http://suggestqueries.google.com/complete/search', {"client" : "youtube", "q" : a:base, "hjson" : "t", "hl" : g:googlesuggest_language, "ie" : "UTF8", "oe" : "UTF8" })
+	let arr = webapi#json#decode(res.content)
     for m in arr[1]
       call add(ret, m[0])
     endfor
