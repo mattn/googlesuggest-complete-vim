@@ -68,7 +68,7 @@ function! googlesuggest#Complete(findstart, base)
   else
     " find months matching with "a:base"
     let ret = []
-    let res = webapi#http#get('http://suggestqueries.google.com/complete/search', {"client" : "youtube", "q" : a:base, "hjson" : "t", "hl" : g:googlesuggest_language, "ie" : "UTF8", "oe" : "UTF8" })
+    let res = webapi#http#get('https://suggestqueries.google.com/complete/search', {"client" : "youtube", "q" : a:base, "hjson" : "t", "hl" : g:googlesuggest_language, "ie" : "UTF8", "oe" : "UTF8" })
 	let arr = webapi#json#decode(res.content)
     for m in arr[1]
       call add(ret, m[0])
